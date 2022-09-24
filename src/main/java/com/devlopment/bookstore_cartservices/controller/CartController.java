@@ -14,25 +14,25 @@ public class CartController {
     @Autowired
     ICartService cartService;
     @PostMapping("/cartservice")
-    public ResponseEntity<CartResponseDTO> createBookData(@RequestBody CartRequestDTO cartRequestDTO, @RequestHeader(name = "Authorization")String token){
-        Cart cart = cartService.createCart(token,cartRequestDTO);
+    public ResponseEntity<CartResponseDTO> createBookData(@RequestBody CartRequestDTO cartRequestDTO){
+        Cart cart = cartService.createCart(cartRequestDTO);
         return new ResponseEntity<CartResponseDTO>(new CartResponseDTO("Inserted Cart data successfully",cart), HttpStatus.OK);
     }
 
     @GetMapping("cartservice/{cartId}")
-    public ResponseEntity<CartResponseDTO> getBookById(@PathVariable("cartId") int cartId,@RequestHeader(name = "Authorization")String token){
-        Cart cart = cartService.getCart(cartId,token);
+    public ResponseEntity<CartResponseDTO> getBookById(@PathVariable("cartId") int cartId){
+        Cart cart = cartService.getCart(cartId);
         return new ResponseEntity<CartResponseDTO>(new CartResponseDTO("Get call for Id successful",cart),HttpStatus.OK);
 
     }
     @PutMapping("/cartservice/{cartId}")
-    public ResponseEntity<CartResponseDTO> updateBookById(@PathVariable("cartId")int cartId,@RequestBody CartRequestDTO cartRequestDTO,@RequestHeader(name = "Authorization")String token){
-        Cart cart = cartService.updateCart(cartId,cartRequestDTO,token);
+    public ResponseEntity<CartResponseDTO> updateBookById(@PathVariable("cartId")int cartId,@RequestBody CartRequestDTO cartRequestDTO){
+        Cart cart = cartService.updateCart(cartId,cartRequestDTO);
         return new ResponseEntity<CartResponseDTO>(new CartResponseDTO("Updated Cart data successfully",cart),HttpStatus.OK);
     }
     @DeleteMapping("/cartservice/{cartId}")
-    public ResponseEntity<CartResponseDTO> deleteByBookId(@PathVariable("cartId") int cartId,@RequestHeader(name = "Authorization")String token){
-        cartService.deleteCart(cartId,token);
+    public ResponseEntity<CartResponseDTO> deleteByBookId(@PathVariable("cartId") int cartId){
+        cartService.deleteCart(cartId);
         return new ResponseEntity<CartResponseDTO>(new CartResponseDTO("Deleted successfully",null),HttpStatus.OK);
     }
 }

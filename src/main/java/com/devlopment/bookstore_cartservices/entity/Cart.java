@@ -16,21 +16,27 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int cartId;
     private int quantity;
+    private int userId;
+    private int bookIds;
 
-    @JsonIgnoreProperties({"applications","hibernateLazyInitializer"})
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private UserData userData;
 
-    @JsonIgnoreProperties({"applications","hibernateLazyInitializer"})
-    @ElementCollection
-    @CollectionTable(name = "cart_book", joinColumns = @JoinColumn(name = "cart_id"))
-    private List<Integer> bookIds;
+    //@JsonIgnoreProperties({"applications","hibernateLazyInitializer"})
+   // @OneToOne(fetch = FetchType.LAZY)
+   // @JoinColumn(name = "userId")
+    //private UserData userData;
 
-    public Cart(CartRequestDTO cartRequestDTO)
-    {
-        this.quantity=cartRequestDTO.getQuantity();
-        this.bookIds = cartRequestDTO.getBookIds();
+//    @JsonIgnoreProperties({"applications","hibernateLazyInitializer"})
+//    @ElementCollection
+//    @CollectionTable(name = "cart_book", joinColumns = @JoinColumn(name = "cart_id"))
+//    private List<Integer> bookIds;
+
+
+    public Cart(int cartId, int quantity, int userId, int bookIds) {
+
+        this.cartId = cartId;
+        this.quantity = quantity;
+        this.userId = userId;
+        this.bookIds = bookIds;
     }
 
     public Cart() {
