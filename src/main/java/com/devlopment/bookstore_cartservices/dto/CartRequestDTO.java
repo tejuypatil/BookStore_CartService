@@ -1,10 +1,12 @@
 package com.devlopment.bookstore_cartservices.dto;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.List;
+@NoArgsConstructor
 @Data
 public class CartRequestDTO {
     private int quantity;
-    private List<Integer> bookIds;
+    private int bookIds;
+
 }

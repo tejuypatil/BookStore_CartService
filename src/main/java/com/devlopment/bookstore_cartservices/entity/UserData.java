@@ -5,8 +5,6 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Data
-@Entity
-@Table(name = "UserData")
 public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
