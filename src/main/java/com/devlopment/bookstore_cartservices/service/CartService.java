@@ -29,6 +29,7 @@ public class CartService implements ICartService {
         {
             Cart cart =new Cart();
             UserData loggedInUserData = userResponseDTO.getUserData();
+            cart.setUserId(loggedInUserData.getUserId());
             cart.setUserData(loggedInUserData);
             cart.setQuantity(cartRequestDTO.getQuantity());
             cart.setBookIds(cartRequestDTO.getBookIds());
