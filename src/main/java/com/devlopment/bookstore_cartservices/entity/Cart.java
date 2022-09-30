@@ -23,5 +23,37 @@ public class Cart {
     }
     public void setUserData(UserData loggedInUserData) {
     }
+
+    public int getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getBookIds() {
+        return bookIds;
+    }
+
+    public void setBookIds(int bookIds) {
+        this.bookIds = bookIds;
+    }
 }
 
